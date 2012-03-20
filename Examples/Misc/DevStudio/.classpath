@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="Sources"/>
-	<classpathentry kind="lib" path="/Library/WebObjects/Extensions/servlet.jar"/>
 	<classpathentry kind="lib" path="Libraries/Tidy.jar"/>
 	<classpathentry kind="lib" path="Libraries/jode-1.1.jar"/>
 	<classpathentry kind="lib" path="Libraries/java2html.jar"/>
@@ -20,5 +19,6 @@
 	<classpathentry exported="true" kind="con" path="WOFramework/JavaXML"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="WOFramework/JavaEOProject"/>
+	<classpathentry kind="var" path="NEXT_LOCAL_ROOT/Library/WebObjects/Extensions/servlet.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

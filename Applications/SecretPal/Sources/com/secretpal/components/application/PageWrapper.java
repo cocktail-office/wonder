@@ -4,6 +4,9 @@ import com.webobjects.appserver.WOContext;
 import com.webobjects.directtoweb.D2WContext;
 import com.webobjects.directtoweb.D2WPage;
 
+import er.extensions.appserver.ERXRequest;
+import er.extensions.appserver.ERXWOContext54;
+
 public class PageWrapper extends SPComponent {
 	public PageWrapper(WOContext context) {
 		super(context);
@@ -30,6 +33,10 @@ public class PageWrapper extends SPComponent {
 	}
 	
 
+	public ERXRequest request() {
+		return (ERXRequest)((ERXWOContext54)context()).request();
+	}
+	
 	@Override
 	public boolean synchronizesVariablesWithBindings() {
 		return false;
