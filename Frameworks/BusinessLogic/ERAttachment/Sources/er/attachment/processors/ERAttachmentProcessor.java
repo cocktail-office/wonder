@@ -199,6 +199,8 @@ public abstract class ERAttachmentProcessor<T extends ERAttachment> {
     }
     webPath = "id/" + attachment.primaryKey() + "/" + webPath;
     String attachmentUrl = context.urlWithRequestHandlerKey(ERAttachmentRequestHandler.REQUEST_HANDLER_KEY, webPath, null);
+    if (context.hasSession() && context.session().storesIDsInURLs())
+    	attachmentUrl = attachmentUrl + "?wosid=" + context.session().sessionID();
     return attachmentUrl;
   }
 
