@@ -191,8 +191,13 @@ public abstract class ERXAjaxApplication extends WOApplication {
 	 *            the request the check
 	 */
 	public static boolean isAjaxRequest(WORequest request) {
-		String requestedWith = request.headerForKey("x-requested-with");
-		return "XMLHttpRequest".equals(requestedWith);
+//		String requestedWith = request.headerForKey("x-requested-with");
+//		return "XMLHttpRequest".equals(requestedWith);
+		String ajaxHeaderValue = "XMLHttpRequest";
+	 	String requestedWithHeader = request.headerForKey("x-requested-with");
+	 	String requestedWithHeaderAlt = request.headerForKey("http_x_requested_with");
+	 	
+	 	return ajaxHeaderValue.equals(requestedWithHeader) || ajaxHeaderValue.equals(requestedWithHeaderAlt);
 	}
 
 	/**

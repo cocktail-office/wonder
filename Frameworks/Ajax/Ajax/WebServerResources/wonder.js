@@ -506,6 +506,7 @@ var AjaxSubmitButton = {
 			submitFunction = delayer.valueChanged.bind(delayer);
 		}
 
+if ($(formFieldID)) {
 		if (observeFieldFrequency == null) {
 			if ($(formFieldID).type.toLowerCase() == 'radio') {
 	    	new Form.Element.RadioButtonObserver($(formFieldID), submitFunction);
@@ -516,6 +517,7 @@ var AjaxSubmitButton = {
 		}
 		else {
     	new Form.Element.Observer($(formFieldID), observeFieldFrequency, submitFunction);
+		}
 		}
 	}
 };
