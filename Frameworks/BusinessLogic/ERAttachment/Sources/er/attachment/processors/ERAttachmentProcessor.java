@@ -138,9 +138,13 @@ public abstract class ERAttachmentProcessor<T extends ERAttachment> {
    */
   protected static String _parsePathTemplate(ERAttachment attachment, String templatePath, String recommendedFileName) {
     String parsedPath = templatePath;
-    String ext = ERMimeTypeManager.primaryExtension(attachment.mimeType());
+//    String ext = ERMimeTypeManager.primaryExtension(attachment.mimeType());
+//    if (ext == null) {
+//      ext = ERXFileUtilities.fileExtension(recommendedFileName);
+//    }
+    String ext = ERXFileUtilities.fileExtension(recommendedFileName);
     if (ext == null) {
-      ext = ERXFileUtilities.fileExtension(recommendedFileName);
+      ext = ERMimeTypeManager.primaryExtension(attachment.mimeType());
     }
     if (ext != null) {
       parsedPath = parsedPath.replaceAll(ERAttachmentProcessor.EXT_VARIABLE, "." + ext);
