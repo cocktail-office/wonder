@@ -166,15 +166,14 @@ var AjaxOnDemand = {
 	},
 	
 	loadCSS: function(css) {
-		// new Ajax.Request(css, { method: 'get', asynchronous: false, onComplete: AjaxOnDemand.loadedCSS });
-		var link=document.createElement("link");
-	 	link.setAttribute("rel", "stylesheet");
- 	 	link.setAttribute("type", "text/css");
- 	 	link.setAttribute("href", css);
- 	 	if (typeof link!="undefined") {
- 	 		document.getElementsByTagName("head")[0].appendChild(link);
- 	 	}
-	},
+        var link=document.createElement("link");
+        link.setAttribute("rel", "stylesheet");
+        link.setAttribute("type", "text/css");
+        link.setAttribute("href", css);
+        if (typeof link!="undefined") {
+            document.getElementsByTagName("head")[0].appendChild(link);
+        }
+    },
 	
 	loadedCSS: function(request) {
 		var inlineStyle = new Element("style", {"type": "text/css"});
@@ -506,7 +505,6 @@ var AjaxSubmitButton = {
 			submitFunction = delayer.valueChanged.bind(delayer);
 		}
 
-if ($(formFieldID)) {
 		if (observeFieldFrequency == null) {
 			if ($(formFieldID).type.toLowerCase() == 'radio') {
 	    	new Form.Element.RadioButtonObserver($(formFieldID), submitFunction);
@@ -517,7 +515,6 @@ if ($(formFieldID)) {
 		}
 		else {
     	new Form.Element.Observer($(formFieldID), observeFieldFrequency, submitFunction);
-		}
 		}
 	}
 };
