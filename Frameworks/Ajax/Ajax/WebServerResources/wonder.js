@@ -505,16 +505,18 @@ var AjaxSubmitButton = {
 			submitFunction = delayer.valueChanged.bind(delayer);
 		}
 
-		if (observeFieldFrequency == null) {
-			if ($(formFieldID).type.toLowerCase() == 'radio') {
-	    	new Form.Element.RadioButtonObserver($(formFieldID), submitFunction);
+		if ($(formFieldID)) {
+			if (observeFieldFrequency == null) {
+				if ($(formFieldID).type.toLowerCase() == 'radio') {
+		    	new Form.Element.RadioButtonObserver($(formFieldID), submitFunction);
+				}
+				else {
+		    	new Form.Element.EventObserver($(formFieldID), submitFunction);
+				}
 			}
 			else {
-	    	new Form.Element.EventObserver($(formFieldID), submitFunction);
+	    	new Form.Element.Observer($(formFieldID), observeFieldFrequency, submitFunction);
 			}
-		}
-		else {
-    	new Form.Element.Observer($(formFieldID), observeFieldFrequency, submitFunction);
 		}
 	}
 };

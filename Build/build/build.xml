@@ -1223,6 +1223,9 @@
 
     <target name="_frameworks.all" depends="common.frameworks.all, excelgeneration.frameworks.all, ajax.frameworks.all, woadaptors.all, validity.frameworks.all, plugins.all, paypal.frameworks.all, dynareporting.frameworks.all, woadaptors.all, JavaMonitorFramework.all">
      </target>
+     
+    <target name="_frameworks_jdk15.all" depends="ERJars.all, JavaWOExtensions.all, ERExtensions.all, Ajax.all, ERJavaMail.all">
+     </target>
 
     <target name="patch.frameworks.5431">
        <property name="erx.class.exclude.0" value="com/webobjects/foundation/*.*" />
@@ -1239,6 +1242,11 @@
     <target name="patch.frameworks.53">
        <property name="include.source" value="true" />
        <antcall target="_frameworks.all" />
+    </target>
+
+    <target name="patch.frameworks.jdk15">
+       <property name="include.source" value="true" />
+       <antcall target="_frameworks_jdk15.all" />
     </target>
 
      <target name="frameworks.all">

@@ -119,16 +119,24 @@ public class ERCloudFilesAttachmentProcessor extends
       return attachment.cloudFilesConnection().getObjectAsStream(attachment.container(), attachment.key());
     }
     catch (FilesAuthorizationException e) {
-      throw new IOException(e);
+    	IOException e1 = new IOException("IOException with nested FilesAuthorizationException");
+    	e1.initCause(e);
+      throw e1;
     }
     catch (FilesInvalidNameException e) {
-      throw new IOException(e);
+    	IOException e1 = new IOException("IOException with nested FilesInvalidNameException");
+    	e1.initCause(e);
+        throw e1;
     }
     catch (FilesNotFoundException e) {
-      throw new IOException(e);
+    	IOException e1 = new IOException("IOException with nested FilesNotFoundException");
+    	e1.initCause(e);
+        throw e1;
     }
     catch (HttpException e) {
-      throw new IOException(e);
+    	IOException e1 = new IOException("IOException with nested HttpException");
+    	e1.initCause(e);
+        throw e1;
     }
 	}
 
